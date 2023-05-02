@@ -4,6 +4,7 @@ import AboutUs from "./AboutUs";
 import { useLoaderData } from "react-router-dom";
 import Chefs from "./Chefs";
 import { data } from "autoprefixer";
+import Partners from "./Partners";
 
 const Home = () => {
   const [chefs, setChefs] = useState([]);
@@ -36,6 +37,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <Partners></Partners>
     </div>
   );
 };
