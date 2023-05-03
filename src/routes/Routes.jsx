@@ -7,6 +7,7 @@ import Details from "../layouts/Details";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
 import PrivetRoutes from "../pages/Routes/PrivetRoutes";
+import ErrorPage from "../pages/error/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup></Signup>,
+      },
+      {
+        path: "*",
+        element: <ErrorPage></ErrorPage>,
       },
       {
         path: "details",
