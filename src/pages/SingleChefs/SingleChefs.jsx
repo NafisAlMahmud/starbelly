@@ -13,6 +13,8 @@ const SingleChefs = () => {
     description,
     signature_recipes,
     likes,
+
+    ratings,
   } = details;
 
   return (
@@ -44,6 +46,7 @@ const SingleChefs = () => {
             </svg>
             {likes}
           </p>
+
           <div className="card-actions justify-end">
             <Link to="/">
               <button className="btn btn-primary">Go beck</button>
@@ -52,7 +55,7 @@ const SingleChefs = () => {
         </div>
       </div>
       <h3 className="text-2xl font-bold mt-10">Signature Recipes</h3>
-      <div className="grid lg:grid-cols-3 mt-10">
+      <div className="grid lg:grid-cols-1 mt-10">
         {signature_recipes.map((recipe) => (
           <Recipe recipe={recipe}></Recipe>
         ))}

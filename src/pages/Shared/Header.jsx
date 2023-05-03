@@ -15,13 +15,18 @@ const Header = () => {
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
-          <li>
+          <li className="text-xl font-semibold">
             <Link to="blogs">Blogs</Link>
           </li>
           <li>
-            <Link>
+            <Link to="login">
               <button className="px-4 py-2 bg-slate-500 text-white rounded">
                 Login
+              </button>
+            </Link>
+            <Link to="signup">
+              <button className="px-4 py-2 bg-slate-900 text-white rounded">
+                Sign Up
               </button>
             </Link>
           </li>
