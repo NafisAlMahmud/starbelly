@@ -41,7 +41,9 @@ const router = createBrowserRouter([
             path: ":id",
             element: <SingleChefs></SingleChefs>,
             loader: ({ params }) =>
-              fetch(`http://localhost:5000/chefs/${params.id}`),
+              fetch(
+                `https://assinment9-server-nafisalmahmud.vercel.app/chefs/${params.id}`
+              ),
           },
         ],
       },
