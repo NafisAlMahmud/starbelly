@@ -11,11 +11,12 @@ const Signup = () => {
 
     const form = event.target;
     const name = form.name.value;
+    const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
     const confirm = form.confirm.value;
 
-    console.log(name, email, password, confirm);
+    console.log(name, email, password, confirm, photo);
 
     setError("");
 
@@ -45,6 +46,15 @@ const Signup = () => {
                 name="name"
                 type="name"
                 placeholder="enter your name"
+                className="input input-bordered w-72"
+                required
+              />
+            </div>
+            <div className="form-control pb-4">
+              <input
+                name="photo"
+                type="text"
+                placeholder="enter your photo URL"
                 className="input input-bordered w-72"
                 required
               />
