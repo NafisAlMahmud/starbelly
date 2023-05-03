@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Blogs from "../Blogs/Blogs";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+  const handleLogout = () => {
+    logOut()
+      .then((result) => {})
+      .catch((error) => console.error(error));
+  };
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
@@ -29,6 +37,14 @@ const Header = () => {
                 Sign Up
               </button>
             </Link>
+            {user && (
+              <span>
+                Welcome {user.email}{" "}
+                <button className="btn" onClick={handleLogout}>
+                  Sign out
+                </button>{" "}
+              </span>
+            )}
           </li>
         </ul>
       </div>

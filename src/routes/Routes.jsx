@@ -6,6 +6,7 @@ import SingleChefs from "../pages/SingleChefs/SingleChefs";
 import Details from "../layouts/Details";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
+import PrivetRoutes from "../pages/Routes/PrivetRoutes";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: "details",
-        element: <Details></Details>,
+        element: (
+          <PrivetRoutes>
+            <Details></Details>
+          </PrivetRoutes>
+        ),
         children: [
           {
             path: ":id",
