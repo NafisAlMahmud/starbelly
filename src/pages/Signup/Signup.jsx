@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Result } from "postcss";
+import { updateProfile } from "firebase/auth";
 
 const Signup = () => {
   const [error, setError] = useState("");
@@ -32,6 +33,18 @@ const Signup = () => {
       const loggedUser = result.user;
       console.log(error.message);
     });
+    // const updateUser = (user, name, photo) => {
+    //   updateProfile(user, {
+    //     displayName: name,
+    //     photoURL: photo,
+    //   })
+    //     .then(() => {
+    //       setError("");
+    //     })
+    //     .catch((error) => {
+    //       setError(error.message);
+    //     });
+    // };
 
     console.log(name, email, password, confirm);
   };

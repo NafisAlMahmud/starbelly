@@ -2,6 +2,14 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  getAuth,
+  signInWithPopup,
+} from "firebase/auth";
+import app from "../../firebase/firebase.config";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 // import { useLocation, useHistory, useNavigate } from "react-router";
 
@@ -9,7 +17,29 @@ const Login = () => {
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+  const gitProvider = new GithubAuthProvider();
   console.log(location);
+
+  const handleGoogleSignin = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+  const handleGitHubSignin = () => {
+    signInWithPopup(auth, gitProvider)
+      .then((result) => {
+        const user = result.user;
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   const from = location.state?.from?.pathname || "/";
   const handleLogin = (event) => {
@@ -59,6 +89,20 @@ const Login = () => {
           </div>
           <input className="btn w-72" type="Submit" value="Login" />
         </form>
+
+        <div className="mt-5">
+          <button
+            onClick={handleGoogleSignin}
+            className="btn bg-slate-50 text-black w-3/5 mx-auto mb-5 hover:bg-red-100"
+          >
+            <FaGoogle></FaGoogle>
+            log in with google
+          </button>
+          <button onClick={handleGitHubSignin} className="btn w-3/5 mx-auto">
+            <FaGithub />
+            log in with Github
+          </button>
+        </div>
         <p className="pt-2">
           <small>
             Create an account

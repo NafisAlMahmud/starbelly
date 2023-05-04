@@ -35,28 +35,31 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="login"
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
-              <button className="btn bg-slate-500 text-white rounded">
-                Login
-              </button>
-            </NavLink>
-            <NavLink
-              to="signup"
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
-              <button className="btn bg-slate-900 text-white rounded">
-                Sign Up
-              </button>
-            </NavLink>
+            {user ? (
+              <img
+                className="rounded-full w-20"
+                title={user?.displayName}
+                src={`${user?.photoURL}`}
+                alt=""
+              />
+            ) : (
+              <NavLink
+                to="login"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
+                <button className="btn bg-slate-500 text-white rounded">
+                  Login
+                </button>
+              </NavLink>
+            )}
+          </li>
+          <li>
             {user && (
               <span>
-                Welcome {user.email}{" "}
+                {user.displayName}
                 <button className="btn" onClick={handleLogout}>
                   Sign out
-                </button>{" "}
+                </button>
               </span>
             )}
           </li>

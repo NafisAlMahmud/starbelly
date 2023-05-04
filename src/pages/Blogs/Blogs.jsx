@@ -1,10 +1,13 @@
+import ReactPDF from "@react-pdf/renderer";
 import React from "react";
+const ref = React.createRef();
+import Pdf from "react-to-pdf";
 
 const Blogs = () => {
   return (
     <div>
       <>
-        <div className="my-conntainer mt-16  mb-10">
+        <div className=" mt-16  mb-10 " ref={ref}>
           <div className="blog-title">
             <h2 className="text-center text-4xl font-semibold">Blogs</h2>
           </div>
@@ -77,6 +80,14 @@ const Blogs = () => {
             </h2>
           </div>
         </div>
+
+        <Pdf targetRef={ref} filename="code-example.pdf">
+          {({ toPdf }) => (
+            <button className="btn" onClick={toPdf}>
+              Download blogs
+            </button>
+          )}
+        </Pdf>
       </>
     </div>
   );

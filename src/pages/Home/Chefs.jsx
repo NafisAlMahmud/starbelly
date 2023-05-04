@@ -1,6 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { ColorRing } from "react-loader-spinner";
+// import React, { lazy, Suspense } from "react";
+import LazyLoad from "react-lazy-load";
+<ColorRing
+  height="80"
+  width="80"
+  radius="9"
+  color="green"
+  ariaLabel="loading"
+  wrapperStyle
+  wrapperClass
+/>;
 const Chefs = ({ chef }) => {
   const { id, name, profile_picture, num_recipes, experiance, likes } = chef;
 
@@ -8,7 +19,9 @@ const Chefs = ({ chef }) => {
     <div className="mt-20">
       <div className="card w-96 bg-base-100 shadow-xl">
         <figure>
-          <img className="h-80 " src={profile_picture} alt="Shoes" />
+          <LazyLoad>
+            <img className="h-80 " src={profile_picture} alt="Shoes" />
+          </LazyLoad>
         </figure>
         <div className="card-body">
           <h2 className="text-2xl font-bold">{name}</h2>
