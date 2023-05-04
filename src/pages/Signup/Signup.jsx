@@ -32,19 +32,20 @@ const Signup = () => {
     createUser(email, password).then((result) => {
       const loggedUser = result.user;
       console.log(error.message);
+      updateUser(loggedUser, name, photo);
     });
-    // const updateUser = (user, name, photo) => {
-    //   updateProfile(user, {
-    //     displayName: name,
-    //     photoURL: photo,
-    //   })
-    //     .then(() => {
-    //       setError("");
-    //     })
-    //     .catch((error) => {
-    //       setError(error.message);
-    //     });
-    // };
+    const updateUser = (user, name, photo) => {
+      updateProfile(user, {
+        displayName: name,
+        photoURL: photo,
+      })
+        .then(() => {
+          setError("");
+        })
+        .catch((error) => {
+          setError(error.message);
+        });
+    };
 
     console.log(name, email, password, confirm);
   };

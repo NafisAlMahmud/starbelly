@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import {
   GithubAuthProvider,
@@ -26,6 +26,7 @@ const Login = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
@@ -35,6 +36,7 @@ const Login = () => {
     signInWithPopup(auth, gitProvider)
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
@@ -98,7 +100,11 @@ const Login = () => {
             <FaGoogle></FaGoogle>
             log in with google
           </button>
-          <button onClick={handleGitHubSignin} className="btn w-3/5 mx-auto">
+          <button
+            value="login"
+            onClick={handleGitHubSignin}
+            className="btn w-3/5 mx-auto"
+          >
             <FaGithub />
             log in with Github
           </button>

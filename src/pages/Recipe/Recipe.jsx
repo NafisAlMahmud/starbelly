@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import { FaStar, FaStarHalf } from "react-icons/fa";
 
 const Recipe = ({ recipe }) => {
   const [bookmark, setBookmark] = useState(true);
@@ -29,7 +30,17 @@ const Recipe = ({ recipe }) => {
 
         <p className="text-left">Ingredients: {ingredients}</p>
 
-        <p className="text-left text-base font-semibold"> Raiting: {rating}</p>
+        <p className="text-left text-base font-semibold flex ">
+          {" "}
+          Raiting: {rating}
+          <div className="flex pt-1 pl-2">
+            <FaStar className="text-yellow-400"></FaStar>{" "}
+            <FaStar className="text-yellow-400"></FaStar>
+            <FaStar className="text-yellow-400"></FaStar>
+            <FaStar className="text-yellow-400"></FaStar>
+            <FaStarHalf className="text-yellow-400"></FaStarHalf>
+          </div>
+        </p>
         <div className="card-actions justify-end">
           <button
             onClick={handleBookMark}

@@ -29,6 +29,7 @@ const SingleChefs = () => {
           <p className="text-base font-semibold">
             Numbers of Recipe : {num_recipes}
           </p>
+          <p className="text-base font-semibold">Experiance : {experiance}</p>
           <p className="flex gap-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
